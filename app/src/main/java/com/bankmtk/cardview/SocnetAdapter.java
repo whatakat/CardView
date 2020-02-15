@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder> {
     private List<Soc> dataSource;
-    private AdapterView.OnItemClickListener itemClickListener;
+    private OnItemClicklistener itemClickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView description;
@@ -41,7 +41,7 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
     public interface OnItemClicklistener{
         void onItemClick(View view, int position);
     }
-    public void SeyOnItemClickListener(OnItemClicklistener itemClicklistener){
+    public void SetOnItemClickListener(OnItemClicklistener itemClicklistener){
         this.itemClickListener = itemClickListener;
     }
     public SocnetAdapter(List<Soc> dataSource){
