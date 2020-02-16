@@ -36,6 +36,12 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
                     }
                 }
             });
+            complete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
         }
     }
     public interface OnItemClicklistener{
