@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,9 +28,20 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         DataSourceBuilder builder = new DataSourceBuilder(getResources());
+        final List<Soc> dataSource = builder.build();
 
-        SocnetAdapter adapter = new SocnetAdapter(builder.build());
+        final SocnetAdapter adapter = new SocnetAdapter(dataSource);
         recyclerView.setAdapter(adapter);
+
+        Button add = findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataSource.add(0,new Soc("Yet one autumn",
+                        R.drawable.nature7, true));
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         final Activity that = this;
 
